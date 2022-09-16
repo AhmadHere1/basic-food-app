@@ -1,7 +1,8 @@
 // ignore_for_file: avoid_unnecessary_containers, sized_box_for_whitespace
 
-import 'package:basics/home/food_page_body.dart';
 import 'package:basics/resources/colors.dart';
+import 'package:basics/responsives/dimensions.dart';
+import 'package:basics/screens/home/food_page_body.dart';
 import 'package:basics/widgets/big_text.dart';
 import 'package:basics/widgets/small_text.dart';
 import 'package:flutter/material.dart';
@@ -21,8 +22,14 @@ class _MainFoodPageState extends State<MainFoodPage> {
         children: [
           Container(
             child: Container(
-              margin: EdgeInsets.only(top: 45, bottom: 15),
-              padding: EdgeInsets.only(left: 20, right: 20),
+              margin: EdgeInsets.only(
+                top: Dimensions.height45,
+                bottom: Dimensions.height15,
+              ),
+              padding: EdgeInsets.only(
+                left: Dimensions.width45,
+                right: Dimensions.width45,
+              ),
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -32,7 +39,7 @@ class _MainFoodPageState extends State<MainFoodPage> {
                         BigText(
                           text: 'Pakistan',
                           color: AppColors.mainColor,
-                          size: 33,
+                          size: Dimensions.iconSize30,
                         ),
                         Row(
                           children: [
@@ -50,22 +57,27 @@ class _MainFoodPageState extends State<MainFoodPage> {
                     ),
                     Center(
                       child: Container(
-                        width: 45,
-                        height: 45,
+                        width: Dimensions.height45,
+                        height: Dimensions.height45,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
+                          borderRadius:
+                              BorderRadius.circular(Dimensions.radius15),
                           color: AppColors.mainColor,
                         ),
                         child: Icon(
                           Icons.search,
                           color: Colors.white,
+                          size: Dimensions.iconSize24,
                         ),
                       ),
                     ),
                   ]),
             ),
           ),
-          FoodPageBody(),
+          Expanded(
+              child: SingleChildScrollView(
+            child: FoodPageBody(),
+          ))
         ],
       ),
     );
